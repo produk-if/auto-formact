@@ -1,0 +1,213 @@
+university:
+  name: "Universitas Muhammadiyah Makassar"
+  abbreviation: "UNISMUH"
+  guidelines: "Pedoman Penyusunan Proposal Skripsi"
+
+document_types:
+  proposal:
+    name: "Proposal Skripsi"
+    required_sections:
+      - "BAB I PENDAHULUAN"
+      - "BAB II TINJAUAN PUSTAKA"
+      - "BAB III METODE PENELITIAN"
+    subsections:
+      "BAB I PENDAHULUAN":
+        - "1.1 Latar Belakang"
+        - "1.2 Rumusan Masalah"
+        - "1.3 Tujuan Penelitian"
+        - "1.4 Manfaat Penelitian"
+        - "1.5 Batasan Masalah"
+        - "1.6 Sistematika Penulisan"
+      "BAB II TINJAUAN PUSTAKA":
+        - "2.1 Landasan Teori"
+        - "2.2 Penelitian Terkait"
+        - "2.3 Kerangka Pikir"
+      "BAB III METODE PENELITIAN":
+        - "3.1 Lokasi dan Waktu Penelitian"
+        - "3.2 Alat dan Bahan"
+        - "3.3 Perancangan Sistem"
+        - "3.4 Metode Pengujian"
+        - "3.5 Analisis Data"
+
+page_setup:
+  paper_size: "A4"
+  paper_dimensions:
+    width: "215mm"
+    height: "297mm"
+  paper_type: "HVS white 70gsm"
+  margins:
+    top: "4cm"
+    left: "4cm"
+    right: "3cm"
+    bottom: "3cm"
+  orientation: "portrait"
+
+typography:
+  body_font:
+    family: "Times New Roman"
+    size: "12pt"
+  line_spacing:
+    body_text: 1.5
+    abstract: 1.0
+    citations: 1.0
+    bibliography: 1.0
+  paragraph:
+    first_line_indent: "0.5in"
+    alignment: "justify"
+
+text_formatting:
+  foreign_words:
+    style: "italic"
+    rule: "All foreign words must be italicized"
+  numbers:
+    sentence_start: "words"
+    rule: "Numbers at sentence start must be written as words"
+    examples:
+      - wrong: "10 years ago"
+        correct: "Ten years ago"
+  decimal_separator: ","
+  thousand_separator: "."
+  units:
+    abbreviations: true
+    periods: false
+    examples: ["m", "cm", "kg", "km", "mm"]
+
+headings:
+  chapter:
+    format: "BAB [ROMAN_NUMERAL] [TITLE]"
+    alignment: "center"
+    font_weight: "bold"
+    case: "uppercase"
+    examples:
+      - "BAB I PENDAHULUAN"
+      - "BAB II TINJAUAN PUSTAKA"
+  level1:
+    format: "[NUMBER].[NUMBER] [Title]"
+    examples:
+      - "1.1 Latar Belakang"
+      - "2.1 Landasan Teori"
+  level2:
+    format: "[LETTER]. [Title]"
+    examples:
+      - "A. Definisi Sistem"
+      - "B. Arsitektur Sistem"
+  level3:
+    format: "[NUMBER]. [Title]"
+    examples:
+      - "1. Pengertian Database"
+      - "2. Jenis-jenis Database"
+
+page_numbering:
+  preliminary:
+    style: "roman_lowercase"
+    examples: ["i", "ii", "iii", "iv"]
+    sections: ["cover", "approval", "abstract", "table_of_contents"]
+  main_content:
+    style: "arabic"
+    start: 1
+    sections: ["chapter1", "chapter2", "chapter3", "references"]
+
+title_page:
+  title_max_words: 14
+  alignment: "center"
+  required_elements:
+    - "University logo"
+    - "Faculty name"
+    - "Program name"
+    - "Thesis title"
+    - "Student name"
+    - "Student ID"
+    - "Year"
+
+tables:
+  title_position: "above"
+  title_format: "Tabel [NUMBER]. [Title]"
+  title_alignment: "center"
+  content_alignment: "center"
+  font_size: "readable"
+  borders: "clear"
+  position: "centered"
+
+figures:
+  caption_position: "below"
+  caption_format: "Gambar [NUMBER]. [Caption]"
+  caption_alignment: "center"
+  position: "centered"
+  quality: "clear_and_readable"
+  margins: "within_page_margins"
+
+bibliography:
+  style: "APA"
+  reference_manager: "Mendeley"
+  currency_limit_years: 5
+  source_types:
+    acceptable:
+      - "journals"
+      - "books"
+      - "government_websites"
+      - "educational_websites"
+      - "research_institutions"
+    unacceptable:
+      - "wikipedia"
+      - "blogs"
+      - "social_media"
+
+validation_rules:
+  margins:
+    severity: "error"
+    message_template: "{margin} margin is {found} but should be {expected} according to UNISMUH guidelines"
+  font:
+    severity: "error"
+    message_template: "{found_font} font used instead of required {required_font}"
+  line_spacing:
+    severity: "error"
+    message_template: "{found_spacing} spacing used instead of required {required_spacing} line spacing"
+  structure:
+    severity: "error"
+    message_template: "Missing required section '{section}' in {chapter}"
+  page_numbering:
+    severity: "warning"
+    message_template: "Page numbering uses {found_style} in {section} section instead of required {required_style}"
+  bibliography_age:
+    severity: "warning"
+    message_template: "Reference from {year} exceeds {limit}-year limit for {thesis_year} thesis"
+  title_length:
+    severity: "warning"
+    message_template: "Title contains {word_count} words, exceeds maximum of {max_words} words"
+
+auto_corrections:
+  enabled: true
+  create_backup: true
+  corrections:
+    margins:
+      auto_fix: true
+      description: "Adjust page margins to UNISMUH standards"
+    font:
+      auto_fix: true
+      description: "Change font to Times New Roman 12pt"
+    line_spacing:
+      auto_fix: true
+      description: "Set line spacing to 1.5 for body text"
+    paragraph_spacing:
+      auto_fix: true
+      description: "Remove extra paragraph spacing"
+    text_alignment:
+      auto_fix: true
+      description: "Set text alignment to justified"
+
+severity_levels:
+  error:
+    color: "red"
+    icon: "❌"
+    description: "Critical formatting violation that must be fixed"
+    block_approval: true
+  warning:
+    color: "orange"
+    icon: "⚠️"
+    description: "Formatting issue that should be addressed"
+    block_approval: false
+  suggestion:
+    color: "blue"
+    icon: "💡"
+    description: "Recommended improvement for better formatting"
+    block_approval: false

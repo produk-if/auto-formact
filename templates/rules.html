@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block title %}Pedoman Formatting - UNISMUH Makassar{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-6 fw-bold text-primary mb-3">
+                <i class="fas fa-book me-3"></i>
+                Pedoman Formatting Tesis
+            </h1>
+            <p class="lead text-muted">
+                {{ rules.university.name }} ({{ rules.university.abbreviation }})
+            </p>
+            <p class="text-muted">Berdasarkan: {{ rules.university.guidelines }}</p>
+        </div>
+
+        <!-- Page Setup -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-file-alt me-2"></i>
+                    Pengaturan Halaman
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Ukuran Kertas</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-primary me-2"></i>{{ rules.page_setup.paper_size }} ({{ rules.page_setup.paper_dimensions.width }} x {{ rules.page_setup.paper_dimensions.height }})</li>
+                            <li><i class="fas fa-caret-right text-primary me-2"></i>{{ rules.page_setup.paper_type }}</li>
+                            <li><i class="fas fa-caret-right text-primary me-2"></i>Orientasi: {{ rules.page_setup.orientation | title }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Margin</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-primary me-2"></i>Atas: {{ rules.page_setup.margins.top }}</li>
+                            <li><i class="fas fa-caret-right text-primary me-2"></i>Bawah: {{ rules.page_setup.margins.bottom }}</li>
+                            <li><i class="fas fa-caret-right text-primary me-2"></i>Kiri: {{ rules.page_setup.margins.left }}</li>
+                            <li><i class="fas fa-caret-right text-primary me-2"></i>Kanan: {{ rules.page_setup.margins.right }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-font me-2"></i>
+                    Tipografi
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Font Utama</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Jenis: {{ rules.typography.body_font.family }}</li>
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Ukuran: {{ rules.typography.body_font.size }}</li>
+                        </ul>
+                        <h6 class="fw-bold mt-3">Paragraph</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Indentasi: {{ rules.typography.paragraph.first_line_indent }}</li>
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Perataan: {{ rules.typography.paragraph.alignment | title }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Spasi Baris</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Teks biasa: {{ rules.typography.line_spacing.body_text }}</li>
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Abstrak: {{ rules.typography.line_spacing.abstract }}</li>
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Kutipan: {{ rules.typography.line_spacing.citations }}</li>
+                            <li><i class="fas fa-caret-right text-success me-2"></i>Daftar Pustaka: {{ rules.typography.line_spacing.bibliography }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Structure -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-list-ol me-2"></i>
+                    Struktur Dokumen (Proposal)
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for section, subsections in rules.document_types.proposal.subsections.items() %}
+                    <div class="col-md-12 mb-3">
+                        <h6 class="fw-bold text-info">{{ section }}</h6>
+                        <ul class="list-unstyled ms-3">
+                            {% for subsection in subsections %}
+                            <li><i class="fas fa-caret-right text-info me-2"></i>{{ subsection }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Headings -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h4 class="mb-0">
+                    <i class="fas fa-heading me-2"></i>
+                    Format Heading
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Chapter (Bab)</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-warning me-2"></i>Format: {{ rules.headings.chapter.format }}</li>
+                            <li><i class="fas fa-caret-right text-warning me-2"></i>Perataan: {{ rules.headings.chapter.alignment | title }}</li>
+                            <li><i class="fas fa-caret-right text-warning me-2"></i>Style: {{ rules.headings.chapter.font_weight | title }}, {{ rules.headings.chapter.case | title }}</li>
+                        </ul>
+                        <div class="alert alert-warning">
+                            <strong>Contoh:</strong><br>
+                            {% for example in rules.headings.chapter.examples %}
+                            • {{ example }}<br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Sub-heading</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-warning me-2"></i>Level 1: {{ rules.headings.level1.format }}</li>
+                            <li><i class="fas fa-caret-right text-warning me-2"></i>Level 2: {{ rules.headings.level2.format }}</li>
+                            <li><i class="fas fa-caret-right text-warning me-2"></i>Level 3: {{ rules.headings.level3.format }}</li>
+                        </ul>
+                        <div class="alert alert-info">
+                            <strong>Contoh Level 1:</strong><br>
+                            {% for example in rules.headings.level1.examples %}
+                            • {{ example }}<br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tables and Figures -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-secondary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-table me-2"></i>
+                    Tabel dan Gambar
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Tabel</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-secondary me-2"></i>Posisi judul: {{ rules.tables.title_position | title }}</li>
+                            <li><i class="fas fa-caret-right text-secondary me-2"></i>Format: {{ rules.tables.title_format }}</li>
+                            <li><i class="fas fa-caret-right text-secondary me-2"></i>Perataan: {{ rules.tables.title_alignment | title }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Gambar</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-secondary me-2"></i>Posisi caption: {{ rules.figures.caption_position | title }}</li>
+                            <li><i class="fas fa-caret-right text-secondary me-2"></i>Format: {{ rules.figures.caption_format }}</li>
+                            <li><i class="fas fa-caret-right text-secondary me-2"></i>Perataan: {{ rules.figures.caption_alignment | title }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Formatting -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-dark text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-edit me-2"></i>
+                    Aturan Format Teks
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Kata Asing</h6>
+                        <p><i class="fas fa-caret-right text-dark me-2"></i>{{ rules.text_formatting.foreign_words.rule }}</p>
+
+                        <h6 class="fw-bold">Angka</h6>
+                        <p><i class="fas fa-caret-right text-dark me-2"></i>{{ rules.text_formatting.numbers.rule }}</p>
+                        <div class="alert alert-light">
+                            <strong>Contoh:</strong><br>
+                            {% for example in rules.text_formatting.numbers.examples %}
+                            ❌ {{ example.wrong }} → ✅ {{ example.correct }}<br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Pemisah Angka</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-dark me-2"></i>Desimal: {{ rules.text_formatting.decimal_separator }}</li>
+                            <li><i class="fas fa-caret-right text-dark me-2"></i>Ribuan: {{ rules.text_formatting.thousand_separator }}</li>
+                        </ul>
+
+                        <h6 class="fw-bold">Satuan</h6>
+                        <p><i class="fas fa-caret-right text-dark me-2"></i>Singkatan tanpa titik</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            {% for unit in rules.text_formatting.units.examples %}
+                            <span class="badge bg-dark">{{ unit }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bibliography -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-book-open me-2"></i>
+                    Daftar Pustaka
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Aturan Umum</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-caret-right text-danger me-2"></i>Style: {{ rules.bibliography.style }}</li>
+                            <li><i class="fas fa-caret-right text-danger me-2"></i>Tools: {{ rules.bibliography.reference_manager }}</li>
+                            <li><i class="fas fa-caret-right text-danger me-2"></i>Maksimal {{ rules.bibliography.currency_limit_years }} tahun dari tahun tesis</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">Sumber yang Diterima</h6>
+                        <ul class="list-unstyled">
+                            {% for source in rules.bibliography.source_types.acceptable %}
+                            <li><i class="fas fa-check text-success me-2"></i>{{ source | title }}</li>
+                            {% endfor %}
+                        </ul>
+                        <h6 class="fw-bold text-danger mt-3">Tidak Diterima</h6>
+                        <ul class="list-unstyled">
+                            {% for source in rules.bibliography.source_types.unacceptable %}
+                            <li><i class="fas fa-times text-danger me-2"></i>{{ source | title }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-arrow-left me-2"></i>
+                Kembali ke Upload Dokumen
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

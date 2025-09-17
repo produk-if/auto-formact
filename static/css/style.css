@@ -1,0 +1,340 @@
+/* Custom CSS for UNISMUH Thesis Formatter */
+
+:root {
+    --primary-color: #0d6efd;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #0dcaf0;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* Drag and Drop Zone */
+.drag-drop-zone {
+    border: 3px dashed #dee2e6;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.drag-drop-zone:hover {
+    border-color: var(--primary-color);
+    background-color: #f8f9ff;
+    transform: translateY(-2px);
+}
+
+.drag-drop-zone.dragover {
+    border-color: var(--success-color);
+    background-color: #f0fff4;
+    transform: scale(1.02);
+}
+
+.drag-drop-zone.dragging {
+    border-color: var(--warning-color);
+    background-color: #fffbf0;
+}
+
+/* File Info Display */
+.file-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.file-info i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+/* Progress Bar Enhancements */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    transition: width 0.4s ease;
+}
+
+/* Card Enhancements */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    border-radius: 12px 12px 0 0 !important;
+    border: none;
+    font-weight: 600;
+}
+
+/* Violations Display */
+.violation-item {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.violation-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.violation-error {
+    background-color: #fff5f5;
+    border-left-color: var(--danger-color);
+}
+
+.violation-warning {
+    background-color: #fffbf0;
+    border-left-color: var(--warning-color);
+}
+
+.violation-suggestion {
+    background-color: #f0f9ff;
+    border-left-color: var(--info-color);
+}
+
+.violation-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+/* Statistics Cards */
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+}
+
+.stat-card-error {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+}
+
+.stat-card-warning {
+    background: linear-gradient(135deg, #feca57 0%, #ff9f43 100%);
+}
+
+.stat-card-success {
+    background: linear-gradient(135deg, #26de81 0%, #20bf6b 100%);
+}
+
+.stat-card-info {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+}
+
+/* Button Enhancements */
+.btn {
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Loading Animation */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Severity Badges */
+.severity-error {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.severity-warning {
+    background-color: var(--warning-color);
+    color: black;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.severity-suggestion {
+    background-color: var(--info-color);
+    color: black;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Modal Enhancements */
+.modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    border-radius: 12px 12px 0 0;
+    border: none;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .drag-drop-zone {
+        padding: 2rem 1rem;
+        min-height: 200px;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .d-flex.gap-2.flex-wrap {
+        flex-direction: column !important;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tooltip Enhancements */
+.tooltip {
+    font-size: 0.875rem;
+}
+
+.tooltip-inner {
+    background-color: var(--dark-color);
+    border-radius: 6px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+}
